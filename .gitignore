@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# builds
+dist/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# env files (examples are committed)
+.env
+.env.local
+.env.*.local
+
+# local database
+backend/data/
+
+# logs & tooling
+*.log
+npm-debug.log*
+coverage/
+.DS_Store
+.vscode/
+.idea/

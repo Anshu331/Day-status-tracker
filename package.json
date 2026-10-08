@@ -1,0 +1,27 @@
+{
+  "name": "day-status-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack day status tracker: authenticated yearly data input grid and a public calendar viewer.",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "predev": "node scripts/setup.mjs",
+    "dev": "concurrently --kill-others-on-fail -n api,web -c blue,magenta \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w backend && npm run build -w frontend",
+    "start": "concurrently -n api,web -c blue,magenta \"npm run start -w backend\" \"npm run start -w frontend\"",
+    "test": "npm run test -w backend",
+    "typecheck": "npm run typecheck -w backend && npm run typecheck -w frontend",
+    "lint": "npm run lint -w frontend",
+    "user:create": "npm run user:create -w backend --"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

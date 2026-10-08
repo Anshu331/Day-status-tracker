@@ -1,0 +1,49 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+dialog::backdrop {
+  background: rgb(15 23 42 / 0.45);
+  backdrop-filter: blur(2px);
+}
+
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+@media (max-width: 639px) {
+  dialog.sheet[open] {
+    animation: sheet-up 200ms ease-out;
+  }
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  dialog.sheet[open] {
+    animation: none;
+  }
+}
+
+.cell-invalid {
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0 6px,
+    rgb(226 232 240) 6px 7px
+  );
+}
